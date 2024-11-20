@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Sayfanın karakter setini belirtir. Türkçe karakterlerin doğru görünmesini sağlar. -->
+    <meta charset="UTF-8">
+    <!-- Sayfa mobil cihazlarda düzgün görüntülensin diye viewport ayarı yapılır -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sayfanın başlığı, tarayıcı sekmesinde görünen metni belirler -->
+    <title>Restoran Yönetim Paneli</title>
+    <!-- CSS dosyasını bağlar, stil ayarlarını içerir -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header (Başlık) bölümü -->
+    <div class="header">
+            <div class="ikon">
+                <img src="Ekran görüntüsü 2024-11-19 005256.png" alt="CookinGO Icon" class="ikon-img">
+                CookinGO
+            </div>
+            <div class="konum"> <!-- Konum menüsünü ortalamak için bu div'i ekliyoruz -->
+                <select>
+                    <option>Konum</option>
+                </select>
+            </div>
+            <!-- Ürün arama alanı -->
+            <div class="urun-arama">
+                <!-- Arama kutusu -->
+                <input type="search" placeholder="Ürün" id="search-input">
+                <!-- Arama butonu, tıklanınca performSearch fonksiyonu çalışacak -->
+                <button class="search-button" onclick="performSearch()">&#128269;</button>
+            </div>
+        
+            <!-- Restoran durumu değiştirilebilen toggle switch (açma/kapama anahtarı) -->
+            <div class="toggle-container" onclick="toggleSwitch()">
+            <span class="toggle-label" id="toggle-label">Restoran Kapalı</span>
+            <!-- Anahtarı temsil eden bölüm -->
+            <div class="toggle-switch" id="toggle-switch"></div>
+            </div>
+    </div>
+
+    <!-- Ana içerik alanı ve yan menü -->
+    <div class="container">
+        <!-- Sidebar (Yan Menü) bölümü -->
+        <!-- Sidebar (Yan Menü) bölümü -->
+     <!-- Sidebar (Yan Menü) bölümü -->
+     <div class="sidebar">
+        <!-- Ana Sayfa butonu ekleniyor -->
+        <button id="anasayfa-btn" class="status-button" onclick="showPage('siparisler')">Ana Sayfa</button>
+        <!-- Diğer sayfalara yönlendiren butonlar -->
+        <button id="bulk-order-button" class="status-button" onclick="toggleBulkOrder()">Toplu Sipariş: Kapalı</button>
+        <button id="yorumlar-btn" class="status-button" onclick="showPage('yorumlar')">Yorumlar</button>
+        <button id="siparisler-btn" class="status-button" onclick="showPage('siparisler')">Siparişler</button>
+    </div>
+    
+    <!-- Ana içerik, başlangıçta aktif olan sayfa (siparişler) görünür -->
+    <div class="main-content" id="siparisler" style="display: flex;">
+        <!-- Kartlar (sipariş verileri gibi bilgiler) düzenini oluşturur -->
+        <div class="card-grid" id="card-grid">
+            <!-- Aktif Siparişler kartı -->
+            <div class="card">
+                <div class="card-header">Aktif Siparişler</div>
+                <div class="card-body">150</div>
+            </div>
+            <!-- Tamamlanmış Siparişler kartı -->
+            <div class="card">
+                <div class="card-header">Tamamlanmış Siparişler</div>
+                <div class="card-body">80</div>
+            </div>
+            <!-- Toplu Siparişler kartı -->
+            <div class="card">
+                <div class="card-header">Toplu Siparişler</div>
+                <div class="card-body">25</div>
+            </div>
+            <!-- Toplam Ciro kartı -->
+            <div class="card">
+                <div class="card-header">Toplam Ciro</div>
+                <div class="card-body">₺ 1,200,000</div>
+            </div>
+            <!-- Restoran Değerlendirmesi kartı -->
+            <div class="card">
+                <div class="card-header">Restoran Değerlendirmesi</div>
+                <div class="card-body">4.5 ⭐</div>
+            </div>
+        </div>
+    </div>
+    
+        <!-- Yorumlar sayfası, başlangıçta görünmez -->
+        <div class="main-content" id="yorumlar" style="display: none;">
+            <div class="comments-container">
+                <!-- Yorum kartları -->
+                <div class="comment-card">
+                    <div class="comment-header">Ali Yılmaz</div>
+                    <div class="comment-body">Çok güzel, lezzetli bir yemekti!</div>
+                    <div class="comment-footer">5 dakika önce</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">Ayşe Koca</div>
+                    <div class="comment-body">Restoran çok temiz ve personel güleryüzlüydü.</div>
+                    <div class="comment-footer">10 dakika önce</div>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-header">Mehmet Kaya</div>
+                    <div class="comment-body">Yemek çok geç geldi.</div>
+                    <div class="comment-footer">20 dakika önce</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript dosyasını sayfaya dahil eder -->
+    <script src="script.js"></script>
+</body>
+</html>

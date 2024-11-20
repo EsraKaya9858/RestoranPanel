@@ -1,0 +1,304 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+
+.header {
+    position: fixed; /* Sabit konum */
+    top: 0; /* Sayfanın üstüne yapışır */
+    left: 0; /* Sol tarafa yapışır */
+    width: 100%; /* Tüm genişliği kaplar */
+    z-index: 1000; /* Sidebar üzerinde görüntülenmez */
+    display: flex;
+    justify-content: center; /* Ortalar */
+    align-items: center;
+    background-color: #c4d9d6;
+    padding: 10px 20px;
+    gap: 20px; /* select-container ve search-container arasına boşluk */
+}
+
+
+.ikon {
+    align-items: center; /* İkon ve metni dikey olarak ortalar */
+    display: flex; /* İkon ve metni yatay bir sıra içinde düzenler */
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-right: 450px;
+}
+.ikon-img {
+    width: 40px; /* İkonun genişliği */
+    height: 40px; /* İkonun yüksekliği */
+    border-radius: 50%; /* İkonun kenarlarını tamamen yuvarlak yapar */
+    margin-right: 10px; /* Yazıyla ikon arasındaki boşluk */
+    object-fit: cover; /* Görselin düzgün şekilde sığdırılmasını sağlar */
+    /*object-fit: contain;  Görselin boyutlandırılması */
+}
+
+.urun-arama {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.urun-arama input[type="search"] {
+    flex-grow: 1;
+    border: none;
+    padding: 8px;
+    outline: none;
+}
+
+.urun-arama .search-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #888;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.urun-arama .search-button:hover {
+    background-color: #e0e0e0;
+}
+
+.urun-arama .search-button:active {
+    background-color: #d0d0d0;
+}
+
+.konum, .urun-arama {
+    display: flex;
+    align-items: center; /* Dikeyde ortalar */
+    justify-content: center;
+}
+.konum select {
+    padding: 10px; /* İç boşluk artırılır */
+    font-size: 16px; /* Yazı boyutu büyütülür */
+    border-radius: 8px; /* Köşeler yuvarlatılır */
+    width: 200px; /* Genişlik artırılır */
+    height: 45px; /* Yükseklik artırılır */
+    border: 2px solid #aaa; /* Daha belirgin bir kenarlık */
+}
+
+
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.header select, .header input[type="search"] {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+
+
+.status-button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.status-button.active {
+    background-color: green;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: auto; /* Bu, öğeyi sağa itmek için kullanılır */
+}
+
+
+.toggle-label {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 25px;
+    background-color: red;
+    border-radius: 15px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.toggle-switch::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 5%;
+    transform: translate(0, -50%);
+    transition: transform 0.3s;
+}
+
+.toggle-switch.active {
+    background-color: green;
+}
+
+.toggle-switch.active::before {
+    transform: translate(25px, -50%);
+}
+
+.container {
+    display: flex;
+    height: calc(100% - 50px); /* Header'ın yüksekliği çıkarıldı */
+}
+
+.sidebar {
+    position: fixed; /* Sabit konum */
+    top: 50px; /* Header'ın altında başlar */
+    left: 0;
+    width: 250px; /* Sabit genişlik */
+    height: calc(100% - 50px); /* Header yüksekliği çıkarıldı */
+    background-color: #dde5e4;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 900; /* Header'ın altında */
+    flex-shrink: 0; /* Sidebar genişliği sabit kalır */
+}
+
+.sidebar button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #bbb;
+}
+
+
+.main-content {
+    margin-top: 50px; /* Header yüksekliği kadar boşluk */
+    margin-left: 250px; /* Sidebar genişliği kadar boşluk */
+    width: calc(100% - 250px); /* Sidebar genişliği çıkarılarak kalan alan */
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #ffffff; /* İçeriği belirgin yapmak için */
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sütunlu ızgara düzeni */
+    gap: 20px; /* Kartlar arasındaki boşluk */
+    padding: 20px;
+}
+
+.card {
+    z-index: 10; /* Bu satır, kartları ön planda tutar */
+    position: relative; /* Başlıkların konumlandırılabilmesi için gerekli */
+    padding-top: 40px; /* Başlık için üst kısımda yer aç */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    height: 270px; /* Kartların yüksekliği */
+    width: 340px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card-header {
+    position: absolute; /* Kartın üstüne sabitlenir */
+    top: 0; /* Kartın üst kısmına yapışır */
+    left: 50%; /* Ortalamak için sol kenardan %50 yerleştir */
+    transform: translateX(-50%); /* Tam ortalamak için kaydır */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Şık bir koyu renk */
+    background-color: #f9f9f9; /* Hafif bir arka plan (isteğe bağlı) */
+    padding: 5px 10px;
+    border-radius: 5px; /* Köşeleri yuvarla */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0074d9;
+}
+
+.comment-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comment-header {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.comment-body {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.comment-footer {
+    font-size: 12px;
+    color: #888;
+} 
+
+/* Header üzerindeki buton veya link için stil */
+.header button, .sidebar button {
+    background-color: #bbb; /* Varsayılan renk */
+    transition: background-color 0.3s; /* Renk değişimi animasyonu */
+}
+
+/* Header üzerindeki buton için fareyle üzerine gelindiğinde renk değişimi */
+.header button:hover, .sidebar button:hover {
+    background-color: #888; /* Fareyle üzerine gelindiğinde renk değişir */
+}
+
+/* Header üzerindeki buton için tıklandığında renk değişimi */
+.header button:active, .sidebar button:active {
+    background-color: #666; /* Tıklanıldığında renk değişir */
+}
+
+/* Aktif sayfa için stil */
+.active-page {
+    background-color: #0074d9; /* Aktif sayfa rengini mavi yapalım */
+    color: white; /* Yazı rengini beyaz yapalım */
+}
